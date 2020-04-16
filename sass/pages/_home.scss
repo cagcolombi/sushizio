@@ -1,0 +1,51 @@
+//SECTIONS
+section{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.section-about{
+    background: $color-grey-light-1;
+    padding: 10rem 15rem;
+    box-shadow: 0 0 2rem $color-grey-dark-3;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include respond(phone){
+        padding: 8rem;
+    }
+}
+
+.section-features{
+    padding: 15rem 10rem;
+    background-image: linear-gradient(rgba($color-black, 0.7), rgba($color-black, 0.7)), url(../images/Section-background.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include respond(tab-land){
+        padding-left: 3rem;
+        padding-right: 3rem;    
+    }
+}
+
+.section-menu{
+    background: $color-grey-light-1;
+    padding: 10rem 6rem;
+    box-shadow: 0 -2rem 2rem -2rem $color-grey-dark-3;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include respond(tab-land){
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}

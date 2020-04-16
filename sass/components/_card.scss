@@ -1,0 +1,147 @@
+//MENU CARD
+.card{
+    width: 35rem;
+	height: 55rem;
+    position: relative;
+    border-radius: 2rem;
+	position: relative;
+	-webkit-transition: 1.5s ease-in-out;
+    transition: 1.5s ease-in-out;
+    transform-style: preserve-3d;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    @include respond(tab-land){
+        width: 30rem;
+        height: 50rem;    
+    }
+
+    @include respond(tab-port){
+        width: 100%;
+        height: 30rem;
+    }
+
+    @include respond(phone){
+        height: 26rem;
+    }
+
+    &__front{
+        z-index: 2;
+        background-color: $color-white; 
+    }
+
+    &__back{
+        color: $color-grey-dark-3;
+        background-image: linear-gradient(to right bottom, $color-orange-light, $color-orange);
+	    transform: rotateY(180deg);
+        z-index: 0;
+	    
+    }
+    &:hover{
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+    }
+}
+
+.side{
+    position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	padding: 2rem 5rem;
+    transform-style: preserve-3d;
+	backface-visibility: hidden;
+    border-radius: 2rem;
+
+    @include respond(tab-land){
+        padding: 1rem 3rem;        
+    }
+}
+
+.content{
+    transform: translatez(7rem);
+    
+    &__menu{
+        font-size: 2.5rem;
+        position: relative;
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+
+        @include respond(tab-land){
+            margin-bottom: 3rem;
+        }
+
+        @include respond(tab-port){
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        &::before{
+            content: "";
+            position: absolute;
+            bottom: -2rem;
+            height: 3px;
+            background-color:$color-orange;
+            width: 7rem;
+            left: 50%;
+            transform: translateX(-50%);
+
+            @include respond(tab-port){
+                bottom: 0;
+            }
+        }
+    }
+
+    &__details{
+        list-style: none;
+        
+        &--item {
+            padding: 1rem;
+            font-size: $default-font-size;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid $color-grey-light-2;
+            }
+        }
+    }
+
+    &__paragraph{
+        font-size: $default-font-size;
+
+        @include respond(tab-port){
+            margin-top: 3rem;
+        }
+
+        @include respond(phone){
+            margin-top: 1rem;
+        }
+    }
+
+    &__price{
+        margin-top: 3.5rem;
+        font-size: 5rem;
+
+        @include respond(tab-port){
+            margin-top: 0;
+            font-size: 3rem;
+            position: absolute;
+            top: 0;
+        }
+
+        &:before{
+            @include respond(tab-port){
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 18px;
+                bottom: 5px;
+                background: $color-orange-light;
+                z-index: -1;
+            }
+
+            @include respond(phone){
+                height: 16px;
+                bottom: -2px;
+            }
+        }
+    }
+}

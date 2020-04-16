@@ -1,0 +1,130 @@
+//BUTTON
+.btn{
+    &,
+    &:link,
+    &:visited{
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.2rem 3rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all 0.2s;
+        font-size: $default-font-size;
+        position: relative;
+        backface-visibility: hidden;
+    }
+
+    &:hover{
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    
+        &::after{
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active,
+    &:focus{
+        outline: none;
+        transform: translateY(-1px);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+    
+    &--orange{
+        background-color: $color-orange;
+        border: 1px solid $color-orange;
+        color: $color-white;
+
+        &::after{
+            background-color: $color-orange;
+            border: 1px solid $color-orange;
+        }
+    }
+
+    &--transparent{
+        margin-left: 2rem;
+        background-color: transparent;
+        border: 1px solid $color-orange;
+        color: $color-white;
+
+        &::after{
+            background-color: transparent;
+            border: 1px solid $color-orange;
+        }
+    }
+
+    &::after{
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+
+    &--animated{
+        animation: moveInBottom 0.5s ease-out 0.75s;
+        animation-fill-mode: backwards;
+    }
+}
+
+//BUTTON SECTION ABOUT
+.btn-text{
+    &:link,
+    &:visited{
+        font-size: $default-font-size;
+        color: $color-orange;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-orange;
+        padding: 3px;
+        transition: all 0.2s;
+    }
+
+    &:hover{
+        background-color: $color-orange;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+        transform: translateY(-2px);
+    }
+
+    &:active{
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+        transform: translateY(0);
+    }
+}
+
+//BUTTON FOOTER
+.arrow-btn{
+    
+    @include respond(tab-port){
+        position: absolute;
+        right: -10%;
+    }
+
+    @include respond(phone){
+        right: -15%;
+    }
+
+    &__top{
+        &:link,
+        &:visited{
+            font-size: 3rem;
+            color: $color-orange;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.2s;
+            animation: pulsate 1.2s infinite;
+        }
+    
+        &:hover,
+        &:active{
+            color: $color-orange-light;
+        }
+    }    
+}
